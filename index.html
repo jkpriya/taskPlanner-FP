@@ -20,64 +20,72 @@
         </header>   
         <!-- Adding a Add Task Button -->
 
-        <!-- <div class="btn-group"> 
-            <button type="button" class="btn btn-light"><h4><a href="addEditTask.html">Add Task +</a></h4></button>
-        </div> -->
-
-        <div class="container addEditTask">
-            <h2>Modal Example</h2>
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addEditTask">Open Modal</button>     
-            <!-- Modal -->
-            <div class="addEditTask" id="addEditTask" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title text-center">Add Task</h4>
+          <div class="wrap">
+                <h2>Add Task</h2>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-new">
+                  +</button>
+          </div>
+           
+          <div class="modal fade bs-example-modal-new" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            
+            <div class="modal-dialog">
+              
+              <!-- Modal Content: begins -->
+              <div class="modal-content">
+                
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="gridSystemModalLabel ">Add/Edit Task</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    
+                </div>
+                <!-- Modal Body -->  
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group title">
+                          <label for="taskTitle">Task Title* </label>
+                          <input type="text" class="form-control" id="taskTitle" required>
                         </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group title">
-                                  <label for="taskTitle">Task Title* </label>
-                                  <input type="text" class="form-control" id="taskTitle" required>
-                                </div>
-                                <div class="form-group details">
-                                    <label for="taskDetails">Task Description* </label>
-                                    <textarea class="form-control" id="taskDetails" rows="5" required></textarea>
-                                </div>
-                                <div class="form-group assignto">
-                                  <label for="taskAssign">Assign To* </label>
-                                  <input type="text" class="form-control" id="taskAssign" required>
-                                </div>
-                                <div class="form-group duedate">  
-                                  <label for="taskDueDate">Due Date* </label>
-                                  <input class="form-control" id="taskDueDate" name="date" placeholder="DD/MM/YYY" type="date" required/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="taskStatus">Status*</label>
-                                    <select id="taskStatus" class="form-control" required>
-                                      <option selected>Choose...</option>
-                                      <option>To Do</option>
-                                      <option>In Progress</option>
-                                      <option>Review</option>
-                                      <option>Done</option>
-                                    </select>
-                                </div>
-                                <div class="form-group text-center submitButton">
-                                    <button type="button" class="btn mb-2"><a href="home.html">Save</a></button>
-                                    <button type="button" class="btn mb-2">Cancel</button>
-                                </div>
-                              </form>
+                        <div class="form-group details">
+                            <label for="taskDetails">Task Description* </label>
+                            <textarea class="form-control" id="taskDetails" rows="5" required></textarea>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div class="form-group assignto">
+                          <label for="taskAssign">Assign To* </label>
+                          <input type="text" class="form-control" id="taskAssign" required>
                         </div>
-                    <!-- model end -->
-                </div>                   
-            </div>            
-        </div>
+                        <div class="form-group duedate">  
+                          <label for="taskDueDate">Due Date* </label>
+                          <input class="form-control" id="taskDueDate" name="date" placeholder="DD/MM/YYY" type="date" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskStatus">Status*</label>
+                            <select id="taskStatus" class="form-control" required>
+                              <option selected>Choose...</option>
+                              <option>To Do</option>
+                              <option>In Progress</option>
+                              <option>Review</option>
+                              <option>Done</option>
+                            </select>
+                        </div>
+                        <div class="form-group text-center submitButton">
+                            <button type="button" class="btn mb-2"><a href="test.html">Save</a></button>
+                            <button type="button" class="btn mb-2">Cancel</button>
+                        </div>
+                      </form>
+                </div>
+              
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+              
+              </div>
+              <!-- Modal Content: ends -->
+              
+            </div>
+            
+          </div>
 
         <!-- Task Status Grid   -->
         <main class="tasks">
@@ -114,7 +122,7 @@
                                     <p class="card-text">Due Date</p>
 
                                     <!-- Button -->
-                                    <a data-toggle="modal" data-target="#addEditTask" class="btn btn-primary">Edit</a>
+                                    <a data-toggle="modal" data-target=".bs-example-modal-new" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
                             </div>                              
                         </div>                    
@@ -134,7 +142,7 @@
                                     <p class="card-text">Due Date</p>
 
                                     <!-- Button -->
-                                    <a data-toggle="modal" data-target="#addEditTask" class="btn btn-primary">Edit</a>
+                                    <a data-toggle="modal" data-target=".bs-example-modal-new" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
                             </div>                              
                         </div>                    
@@ -153,7 +161,7 @@
                                     <p class="card-text">Due Date</p>
 
                                     <!-- Button -->
-                                    <a data-toggle="modal" data-target="#addEditTask" class="btn btn-primary">Edit</a>
+                                    <a data-toggle="modal" data-target=".bs-example-modal-new" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
                             </div>                              
                         </div>                    
@@ -172,7 +180,7 @@
                                     <p class="card-text">Due Date</p>
 
                                     <!-- Button -->
-                                    <a data-toggle="modal" data-target="#addEditTask" class="btn btn-primary">Edit</a>
+                                    <a data-toggle="modal" data-target=".bs-example-modal-new" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
                             </div>                              
                         </div>                    
