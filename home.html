@@ -7,126 +7,131 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    
+    <link rel="stylesheet" href="css/style.css">
     <title>Task Planner</title>
   </head>
   <body>
-    <header>
-     <h1>Welcome To Task Planner</h1>
-    </header>   
-    <!-- Adding a Add Task Button -->
+        <header>
+            <h1>Welcome To Task Planner</h1>
+        </header>   
+        <!-- Adding a Add Task Button -->
 
-    <div class="btn-group"> 
-        <button type="button" class="btn btn-light"><h4><a href="addEditTask.html">Add Task +</a></h4></button>
-    </div>
-
-    <!-- Task Status Grid -->
-
-    <main class="tasks">
-        <div class="container">
-            <div class="row labels">
-                <div class="col ">
-                    <h5>To-do</h5>
-
-                </div>
-                <div class="col">
-                    <h5>In Progress</h5>
-                </div>
-                <div class="col">
-                    <h5>Review</h5>
-                </div>
-                <div class="col">
-                    <h5>Done</h5>
-                </div>
-            </div>
-
-            <!-- Task Card Details -->
-            <div class="row cards">
-                <div class="col">                   
-                    <!-- Card -->
-                    <div id="draggable-handle" class="card">
-                                              
-                        <!-- Card content -->
-                        <div class="card-body">
-                            <!-- Title -->
-                                <h4 class="card-title"><a>Task Title</a></h4>
-                                <!-- Text -->
-                                <p class="card-text">Task Description</p>
-                                <p class="card-text">Assigned To</p>
-                                <p class="card-text">Due Date</p>
-
-                                <!-- Button -->
-                                <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-primary ">Delete</a>
-                        </div>                              
-                    </div>                    
-                </div>
-
-                <div class="col">                   
-                    <!-- Card -->
-                    <div id="draggable-handle" class="card">
-                                              
-                        <!-- Card content -->
-                        <div class="card-body">
-                            <!-- Title -->
-                                <h4 class="card-title"><a>Task Title</a></h4>
-                                <!-- Text -->
-                                <p class="card-text">Task Description</p>
-                                <p class="card-text">Assigned To</p>
-                                <p class="card-text">Due Date</p>
-
-                                <!-- Button -->
-                                <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-primary ">Delete</a>
-                        </div>                              
-                    </div>                    
-                </div>
-                <div class="col">                   
-                    <!-- Card -->
-                    <div id="draggable-handle" class="card">
-                                              
-                        <!-- Card content -->
-                        <div class="card-body">
-                            <!-- Title -->
-                                <h4 class="card-title"><a>Task Title</a></h4>
-                                <!-- Text -->
-                                <p class="card-text">Task Description</p>
-                                <p class="card-text">Assigned To</p>
-                                <p class="card-text">Due Date</p>
-
-                                <!-- Button -->
-                                <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-primary ">Delete</a>
-                        </div>                              
-                    </div>                    
-                </div>
-                <div class="col">                   
-                    <!-- Card -->
-                    <div id="draggable-handle" class="card">
-                                              
-                        <!-- Card content -->
-                        <div class="card-body">
-                            <!-- Title -->
-                                <h4 class="card-title"><a>Task Title</a></h4>
-                                <!-- Text -->
-                                <p class="card-text">Task Description</p>
-                                <p class="card-text">Assigned To</p>
-                                <p class="card-text">Due Date</p>
-
-                                <!-- Button -->
-                                <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-primary ">Delete</a>
-                        </div>                              
-                    </div>                    
-                </div>  
-            </div>
+        <div class="btn-group"> 
+            <button type="button" class="btn btn-light"><h4><a href="addEditTask.html">Add Task +</a></h4></button>
         </div>
-    </main>
+        <!-- Task Status Grid   -->
+        <main class="tasks">
+            <div class="container2">
+                <div class="row labels text-center">
+                    <div class="col ">
+                        <h5>To-do</h5>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+                    </div>
+                    <div class="col">
+                        <h5>In Progress</h5>
+                    </div>
+                    <div class="col">
+                        <h5>Review</h5>
+                    </div>
+                    <div class="col">
+                        <h5>Done</h5>
+                    </div>
+                </div>
+
+                <!-- Task Card Details -->
+                <div class="row cards">
+                    <div class="col">                   
+                        <!-- Card -->
+                        <div id="draggable-handle" class="card">
+                                                
+                            <!-- Card content -->
+                            <div class="card-body">
+                                <!-- Title -->
+                                    <h4 class="card-title"><a>Task Title</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">Task Description</p>
+                                    <p class="card-text">Assigned To</p>
+                                    <p class="card-text">Due Date</p>
+
+                                    <!-- Button -->
+                                    <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-primary ">Delete</a>
+                            </div>                              
+                        </div>                    
+                    </div>
+
+                    <div class="col">                   
+                        <!-- Card -->
+                        <div id="draggable-handle" class="card">
+                                                
+                            <!-- Card content -->
+                            <div class="card-body">
+                                <!-- Title -->
+                                    <h4 class="card-title"><a>Task Title</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">Task Description</p>
+                                    <p class="card-text">Assigned To</p>
+                                    <p class="card-text">Due Date</p>
+
+                                    <!-- Button -->
+                                    <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-primary ">Delete</a>
+                            </div>                              
+                        </div>                    
+                    </div>
+                    <div class="col">                   
+                        <!-- Card -->
+                        <div id="draggable-handle" class="card">
+                                                
+                            <!-- Card content -->
+                            <div class="card-body">
+                                <!-- Title -->
+                                    <h4 class="card-title"><a>Task Title</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">Task Description</p>
+                                    <p class="card-text">Assigned To</p>
+                                    <p class="card-text">Due Date</p>
+
+                                    <!-- Button -->
+                                    <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-primary ">Delete</a>
+                            </div>                              
+                        </div>                    
+                    </div>
+                    <div class="col">                   
+                        <!-- Card -->
+                        <div id="draggable-handle" class="card">
+                                                
+                            <!-- Card content -->
+                            <div class="card-body">
+                                <!-- Title -->
+                                    <h4 class="card-title"><a>Task Title</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">Task Description</p>
+                                    <p class="card-text">Assigned To</p>
+                                    <p class="card-text">Due Date</p>
+
+                                    <!-- Button -->
+                                    <a href="./addEditTask.html" class="btn btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-primary ">Delete</a>
+                            </div>                              
+                        </div>                    
+                    </div>  
+                </div>
+            </div>
+        </main>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
   </body>
+  <footer id="closing">
+        <p>Copyright 2021.All rights reserved.Made with &#128151</p>
+  </footer>
 </html>

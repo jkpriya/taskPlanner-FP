@@ -1,0 +1,59 @@
+*{
+    margin: 2%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+html{
+    display:grid;
+}
+h1,h3{
+    text-align: center;
+    font-size: 2em;
+}
+
+
+
+form{
+    justify-content: center;
+    align-content: center;
+}
+label{
+    font-size: 1.5em;
+    align-content: left;   
+}
+.addtaskmain{
+    background-color: rgb(184, 185, 179);
+}
+
+.details{
+    overflow: auto;
+}
+button{
+    background-color: rgb(62, 115, 124) !important;
+    color:white !important
+}
+button a,.card-body a{
+    display: inline-block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+button a:hover{
+    text-decoration: none; 
+   
+    color: rgb(19, 18, 18);
+}
+
+
+
+
+
+footer p{
+    display: block;
+    color: #012980;
+    text-align: center;
+    
+    bottom: -44px;
+    width: 100%;
+    height: 40px;
+    z-index: 90;
+    }
