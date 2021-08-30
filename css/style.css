@@ -43,7 +43,9 @@ button a:hover{
     color: rgb(19, 18, 18);
 }
 
-
+.modal-title{
+    justify-content: left !important;
+}
 
 
 
