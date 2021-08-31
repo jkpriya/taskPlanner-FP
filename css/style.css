@@ -15,10 +15,11 @@ h1,h3{
 .todo{
     flex-wrap: wrap;
 }
-.wrap { 
-    padding: 15px;
+.addbutton { 
+    padding: 20px;
      font-family: Georgia, 'Times New Roman', Times, serif;
     display:flex;
+    width: 50px;
  }
  h5{
     text-align: center;
@@ -26,7 +27,7 @@ h1,h3{
     font-weight: bold;
  }
  .row{
-     margin:1%;
+    
     justify-content: space-around;
     display:flex;
     padding:0 4px;
@@ -35,7 +36,12 @@ h1,h3{
  .cards .col{
      width:25%;
      height: 350px;
+
     
+ }
+ .card{
+    justify-content: space-around;
+
  }
 
  .container2{
@@ -44,7 +50,7 @@ h1,h3{
     
     /* Styling */
     background-color: grey;
-    height:700px;
+    height:800px;
  }
 
 
@@ -102,7 +108,7 @@ button a:hover{
 @media only screen (min width:300px) or (max-width: 725px) {
     .container2{
     height:300px;
-    
+
     }
     
   }
