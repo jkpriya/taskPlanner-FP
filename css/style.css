@@ -1,6 +1,7 @@
 *{
     margin: 2%;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
 }
 html{
     display:grid;
@@ -8,13 +9,37 @@ html{
 h1,h3{
     text-align: center;
     font-size: 2em;
+    font-size: 28px; 
+}
+.todo{
+    flex-wrap: wrap;
 }
 .wrap { 
     padding: 15px;
      font-family: Georgia, 'Times New Roman', Times, serif;
     display:flex;
  }
-h1 { font-size: 28px; }
+ h5{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+ }
+ .row{
+     margin:1%;
+    justify-content: space-around;
+    display:flex;
+    padding:0 4px;
+    flex-wrap: wrap;
+ }
+ .cards .col{
+     width:25%;
+     height: 350px;
+    
+ }
+
+
+
+
 h4,
 modal-title { font-size: 18px;
      font-weight: bold;
@@ -63,13 +88,17 @@ button a,.card-body a{
 }
 button a:hover{
     text-decoration: none; 
-    
     color: rgb(19, 18, 18);
 }
 
-/* .modal-title{
-    justify-content: left !important;
-} */
+@media only screen and (min-width: 350px) {
+    body {
+      overflow: scroll;
+    }
+    .col{
+        width:50%
+    }
+  }
 
 
 
@@ -83,3 +112,6 @@ footer p{
     height: 40px;
     z-index: 90;
     }
+
+
+    
