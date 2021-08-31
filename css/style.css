@@ -6,6 +6,7 @@
 html{
     display:grid;
 }
+
 h1,h3{
     text-align: center;
     font-size: 2em;
@@ -37,7 +38,14 @@ h1,h3{
     
  }
 
-
+ .container2{
+    overflow-x:scroll;
+    overflow-y:scroll;
+    
+    /* Styling */
+    background-color: grey;
+    height:700px;
+ }
 
 
 h4,
@@ -91,13 +99,12 @@ button a:hover{
     color: rgb(19, 18, 18);
 }
 
-@media only screen and (min-width: 350px) {
-    body {
-      overflow: scroll;
+@media only screen (min width:300px) or (max-width: 725px) {
+    .container2{
+    height:300px;
+    
     }
-    .col{
-        width:50%
-    }
+    
   }
 
 
