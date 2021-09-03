@@ -14,10 +14,20 @@
           .forEach(toastNode => new Toast(toastNode))
       </script>
     <!-- css style sheet -->
-    <link rel="stylesheet" href="./css/teststyle.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Task Planner</title>
   </head>
   <body>
+      <!-- NavBar for logo Start -->
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./images/logo.png" alt="" width="35" height="35" class="d-inline-block align-text-top">
+              Task Planner
+          </a>
+        </div>
+      </nav>
+      <!-- NavBar for logo End -->
       <main>
             <!-- Heading of the page start -->
             <header class="container text-center">
@@ -28,9 +38,9 @@
             <br>
             <section class="container mtb-10">
                 <!-- Button trigger modal -->
-                <label class="addTaskButton" for="addTaskButton">Add Task &emsp;</label>
+                <!-- <label class="addTaskButtonlabel" for="addTaskButton">Add Task &emsp;</label> -->
                 <button id="addTaskButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <h3>+</h3>
+                    <h3 id="modalAddTaskButton">Add Task+</h3>
                 </button>
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -75,8 +85,8 @@
                                 </select>
                             </div>
                             <!-- Save Button -->
-                            <div class="form-group text-center submitButton">
-                                <button type="button" class="btn mb-2"><a href="index.html">Save</a></button>
+                            <div class="form-group text-center submitButton mt-3">
+                                <button type="button" class="btn mt-8"><a href="index.html">Save</a></button>
                             </div>
                         </form>
                         <!-- Form End -->
