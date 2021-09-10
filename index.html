@@ -87,13 +87,16 @@
                             <!-- Save Button -->
                             <div class="form-group text-center submitButton mt-3">
                                 <button type="button" class="btn mt-8"><a href="index.html">Save</a></button>
+                                <button type="button" class="btn reset mt-8"><a href="#">Reset</a></button>
+                                
                             </div>
+
                         </form>
                         <!-- Form End -->
                         </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
+                        <!-- <div class="modal-footer">
+                        <button type="button" name="reset" id=reset class="btn btn-secondary" data-bs-dismiss="modal">Reset</button>
+                        </div> -->
                     </div>
                     </div>
                 </div>  
@@ -110,32 +113,59 @@
                     <div class="col todo">                   
                         <h3 class>To-do</h3>
                         <!-- Card1 -->
-                        <div id="draggable-handle" class="card mt-2" style="width: 15rem;height:20rem">                     
+                        <div id="draggable-handle" class="card mt-2  " >                     
                             <!-- Card content -->
-                            <div class="card-body">
+                            <div class="card-body" >
                                 <!-- Title -->
                                     <h4 class="card-title"><a>Add JavaScript</a></h4>
                                     <!-- Text -->
-                                    <p class="card-text">To do actions using JavaScript</p>
-                                    <p class="card-text">Assigned to: Priya and amrutha</p>
-                                    <p class="card-text">Due Date: 12-11-2021</p>
-                                    <p class="card-text">Status:To Do</p>
+                                    <div class="card-text taskDescription">
+                                        <label for="cardLabelDescription">Task Description: </label>
+                                        <p class="cardDescriptionValue">To do actions using JavaScript
+                                       </p>
+                                    </div>
+                                    <div class="card-text assignto">
+                                        <label for="cardLabelAssign">Assign To: </label>
+                                        <p class="cardAssignedToValue"> Priya and amrutha</p>
+                                    </div>
+                                    <div class="card-text duedate">
+                                        <label for="cardLabelDueDate">DueDate: </label>
+                                        <p class="cardDueDateValue"> 12-11-2021</p>
+                                    </div>
+                                    <div class="card-text status">
+                                        <label for="cardLabelStatus">Status: </label>
+                                        <p id="todo"class="cardStatusValue">To Do</p>
+                                    </div>
                                     <!-- Button -->
                                     <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
                             </div>                              
                         </div> 
                         <!-- Card 2 -->
-                        <div id="draggable-handle" class="card mt-2" style="width: 15rem;height:20rem">                   
+                        <div id="draggable-handle" class="card mt-2" >                   
                             <!-- Card content -->
                             <div class="card-body">
                                 <!-- Title -->
                                     <h4 class="card-title"><a>Presentation of final project</a></h4>
                                     <!-- Text -->
-                                    <p class="card-text">Presenting the website</p>
-                                    <p class="card-text">Assigned to: Priya and amrutha</p>
-                                    <p class="card-text">Due Date: 14-10-2021</p>
-                                    <p class="card-text">Status: To Do</p>
+                                    <div class="card-text taskDescription">
+                                        <label for="cardLabelDescription">Task Description: </label>
+                                        <p class="cardDescriptionValue">Presenting the website
+                                       </p>
+                                    </div>
+                                    <div class="card-text assignto">
+                                        <label for="cardLabelAssign">Assign To: </label>
+                                        <p class="cardAssignedToValue"> Priya and amrutha</p>
+                                    </div>
+                                    <div class="card-text duedate">
+                                        <label for="cardLabelDueDate">DueDate: </label>
+                                        <p class="cardDueDateValue"> 14-10-2021</p>
+                                    </div>
+                                    <div class="card-text status">
+                                        <label for="cardLabelStatus">Status: </label>
+                                        <p id="todo" class="cardStatusValue">To Do</p>
+                                    </div>
+                                    
                                     <!-- Button -->
                                     <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
@@ -147,16 +177,30 @@
                     <div class="col inProgress">    
                         <h3>In Progress</h3>              
                         <!-- Card -->
-                        <div id="draggable-handle" class="card mt-2" style="width: 15rem;height:20rem">                    
+                        <div id="draggable-handle" class="card mt-2" >                    
                             <!-- Card content -->
                             <div class="card-body">
                                 <!-- Title -->
                                     <h4 class="card-title"><a>Add CSS</a></h4>
                                     <!-- Text -->
-                                    <p class="card-text">Adding style to the web page</p>
-                                    <p class="card-text">Assigned to: Priya and amrutha</p>
-                                    <p class="card-text">Due Date: 31-08-2021</p>
-                                    <p class="card-text">Status: In Progress</p>
+                                    <div class="card-text taskDescription">
+                                        <label for="cardLabelDescription">Task Description: </label>
+                                        <p class="cardDescriptionValue">Adding style to the web page
+                                       </p>
+                                    </div>
+                                    <div class="card-text assignto">
+                                        <label for="cardLabelAssign">Assign To: </label>
+                                        <p class="cardAssignedToValue"> Priya and amrutha</p>
+                                    </div>
+                                    <div class="card-text duedate">
+                                        <label for="cardLabelDueDate">DueDate: </label>
+                                        <p class="cardDueDateValue"> 31-08-2021</p>
+                                    </div>
+                                    <div class="card-text status">
+                                        <label for="cardLabelStatus">Status: </label>
+                                        <p id = "inProgress" class="cardStatusValue">In Progress</p>
+                                    </div>
+                                    
                                     <!-- Button -->
                                     <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
@@ -168,16 +212,30 @@
                     <div class="col review"> 
                         <h3>Review</h3>                 
                         <!-- Card -->
-                        <div id="draggable-handle" class="card mt-2" style="width: 15rem;height:20rem">                  
+                        <div id="draggable-handle" class="card mt-2" >                  
                             <!-- Card content -->
                             <div class="card-body">
                                 <!-- Title -->
                                     <h4 class="card-title"><a>Review HTML</a></h4>
                                     <!-- Text -->
-                                    <p class="card-text">Review by Lisa</p>
-                                    <p class="card-text">Assigned to: Lisa</p>
-                                    <p class="card-text">Due Date: 01-09-2021</p>
-                                    <p class="card-text">Status: Review</p>
+                                    <div class="card-text taskDescription">
+                                        <label for="cardLabelDescription">Task Description: </label>
+                                        <p class="cardDescriptionValue">Review by Lisa
+                                       </p>
+                                    </div>
+                                    <div class="card-text assignto">
+                                        <label for="cardLabelAssign">Assign To: </label>
+                                        <p class="cardAssignedToValue">Lisa</p>
+                                    </div>
+                                    <div class="card-text duedate">
+                                        <label for="cardLabelDueDate">DueDate: </label>
+                                        <p class="cardDueDateValue">01-09-2021</p>
+                                    </div>
+                                    <div class="card-text status">
+                                        <label for="cardLabelStatus">Status: </label>
+                                        <p id ="review" class="cardStatusValue">Review</p>
+                                    </div>
+                                    
                                     <!-- Button -->
                                     <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
@@ -189,17 +247,31 @@
                     <div class="col done"> 
                         <h3>Done</h3>                  
                         <!-- Card -->
-                        <div id="draggable-handle" class="card mt-2" style="width: 15rem;height:20rem">
+                        <div id="draggable-handle" class="card mt-2" >
                                                 
                             <!-- Card content -->
                             <div class="card-body">
                                 <!-- Title -->
                                     <h4 class="card-title"><a>Create Wireframe</a></h4>
                                     <!-- Text -->
-                                    <p class="card-text">Designing a web page</p>
-                                    <p class="card-text">Assigned to: Priya and amrutha</p>
-                                    <p class="card-text">Due Date: 30-08-2021</p>
-                                    <p class="card-text">Status: Done</p>
+                                    <div class="card-text taskDescription">
+                                        <label for="cardLabelDescription">Task Description: </label>
+                                        <p class="cardDescriptionValue">Designing a web page
+                                       </p>
+                                    </div>
+                                    <div class="card-text assignto">
+                                        <label for="cardLabelAssign">Assign To: </label>
+                                        <p class="cardAssignedToValue"> Priya and amrutha</p>
+                                    </div>
+                                    <div class="card-text duedate">
+                                        <label for="cardLabelDueDate">DueDate: </label>
+                                        <p class="cardDueDateValue"> 30-08-2021</p>
+                                    </div>
+                                    <div class="card-text status">
+                                        <label for="cardLabelStatus">Status: </label>
+                                        <p id ="done" class="cardStatusValue">Done</p>
+                                    </div>
+                                    
                                     <!-- Button -->
                                     <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-primary ">Delete</a>
