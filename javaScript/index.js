@@ -83,6 +83,11 @@ function validFormFieldInput(){
 // form.addEventListener('submit',validFormFieldInput);
 btnSave.addEventListener('click',validFormFieldInput);
 
+//Initialize a new instance of `TaskManager
+const taskManager = new TaskManager();
+
+//console.log()` the `tasks` property to check whether the tasks array is empty
+ console.log(taskManager.tasks);
 
 
 
