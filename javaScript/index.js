@@ -83,6 +83,7 @@ function validFormFieldInput(){
         return;
     } 
     else {
+        // Pushing the data from form into the array task
         taskManager.addTask(taskTitle.value,
         taskDetails.value,
         taskAssign.value,
@@ -91,7 +92,8 @@ function validFormFieldInput(){
         //Resetting the form after saving the data
         form.reset();
     } 
-}
+    taskManager.render();
+};
 
 // Call the events
 // form.addEventListener('submit',validFormFieldInput);
@@ -100,5 +102,5 @@ btnSave.addEventListener('click',validFormFieldInput);
 //console.log()` the `tasks` property to check whether the tasks array is empty
 console.log(taskManager.tasks);
 
-const createTaskHtml1 = createTaskHtml("title", "description", "Priya and Amrutha", "23/09/2021", "Final Project");
-console.log(createTaskHtml1)
+// const createTaskHtml1 = createTaskHtml("title", "description", "Priya and Amrutha", "23/09/2021", "Final Project");
+// console.log(createTaskHtml1);
