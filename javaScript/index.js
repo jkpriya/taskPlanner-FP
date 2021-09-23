@@ -91,6 +91,8 @@ function validFormFieldInput(){
         taskStatus.value);
         //Resetting the form after saving the data
         form.reset();
+        document.querySelector('#closeModal').click();
+
     } 
     taskManager.render();
 };
