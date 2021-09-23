@@ -1,20 +1,20 @@
+//Initialize a new instance of `TaskManager
+const taskManager = new TaskManager();
+
 // Selectors
-const form = document.querySelector('#addTaskForm');
-
-
-const taskTitle = document.querySelector('#taskTitle');
-const taskDetails = document.querySelector('#taskDetails');
-const taskAssign = document.querySelector('#taskAssign');
-const taskDueDate = document.querySelector('#taskDueDate');
-const taskStatus = document.querySelector('#taskStatus');
-const btnSave = document.querySelector('#btnSave');
-const errMsgTitle = document.querySelector('#errMsgTitle');
-const errMsgDetails = document.querySelector('#errMsgDetails');
-const errMsgAssign = document.querySelector('#errMsgAssign');
-const errMsgDueDate = document.querySelector('#errMsgDueDate');
-const errMsgStatus = document.querySelector('#errMsgStatus');
+const form = document.querySelector('#addTaskForm'); // form
+const taskTitle = document.querySelector('#taskTitle'); // Input Form Title
+const taskDetails = document.querySelector('#taskDetails');// Input Form Description
+const taskAssign = document.querySelector('#taskAssign'); // Input Form Assign
+const taskDueDate = document.querySelector('#taskDueDate'); // Input Form DueDate
+const taskStatus = document.querySelector('#taskStatus'); // Input Form Status
+const btnSave = document.querySelector('#btnSave'); // Input Form Save Button
+const errMsgTitle = document.querySelector('#errMsgTitle'); // Error Form Title
+const errMsgDetails = document.querySelector('#errMsgDetails'); // Error Form Description
+const errMsgAssign = document.querySelector('#errMsgAssign'); // Error Form Assign
+const errMsgDueDate = document.querySelector('#errMsgDueDate'); // Error Form DueDate
+const errMsgStatus = document.querySelector('#errMsgStatus'); // Error Form Status
 let validationCount=0;
-// const btnReset=document.querySelector('#btnReset');
 //Function
 function validFormFieldInput(){
     // Task Tile Validation (no of characters should be greater than 5)
@@ -77,25 +77,26 @@ function validFormFieldInput(){
         errMsgStatus.innerHTML = "";
         taskStatus.style.borderColor = "black";  
     }
+    // Validating the form and then sending it to tasks array in TaskManager class
+    if (validationCount > 0) {
+        validationCount = 0;
+        return;
+    } 
+    else {
+        taskManager.addTask(taskTitle.value,
+        taskDetails.value,
+        taskAssign.value,
+        taskDueDate.value,
+        taskStatus.value);
+        //Resetting the form after saving the data
+        form.reset();
+    } 
 }
 
 // Call the events
 // form.addEventListener('submit',validFormFieldInput);
 btnSave.addEventListener('click',validFormFieldInput);
 
-//Initialize a new instance of `TaskManager
-const taskManager = new TaskManager();
-
 //console.log()` the `tasks` property to check whether the tasks array is empty
- console.log(taskManager.tasks);
+console.log(taskManager.tasks);
 
-
-
-/*
-### Step 3: Showing errors to users
-
-1. Try out the example over in [Bootstrap form validation (You might have to scroll down to "validation")](https://getbootstrap.com/docs/4.5/components/forms/#validation/) and check out their valid and invalid messages.
-2. Add `<div class="valid-feedback">` and `<div class="invalid-feedback">` in each of your form inputs with a message to the user.
-3. Depending on if the input is valid or invalid, we can add or remove the class to the corrosponding input. We can use:
- `newTaskNameInput.classList.remove('is-valid');` together with  
-`newTaskNameInput.classList.add('is-invalid');`  and Bootstrap will take care of showing an invalid input message. Try the opposite logic for a valid message!  */
