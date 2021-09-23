@@ -100,17 +100,17 @@ h3{
     height:20rem;
 } */
 
-#todo{
+#ToDo{
     color: rgb(133, 198, 236) !important ;
     
 }
-#inProgress{
-    color:rgb(235, 139, 13);
+#InProgress{
+    color:rgb(235, 139, 13) !important;
 }
-#review{
+#Review{
     color:rgb(235, 46, 13);
 }
-#done{
+#Done{
     color:rgb(68, 241, 68);
 }
 /* Back to top link CSS */
