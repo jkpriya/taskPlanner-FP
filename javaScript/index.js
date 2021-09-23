@@ -100,3 +100,5 @@ btnSave.addEventListener('click',validFormFieldInput);
 //console.log()` the `tasks` property to check whether the tasks array is empty
 console.log(taskManager.tasks);
 
+const createTaskHtml1 = createTaskHtml("title", "description", "Priya and Amrutha", "23/09/2021", "Final Project");
+console.log(createTaskHtml1)
