@@ -50,11 +50,12 @@
                     <div class="modal-content">
                         <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearFields()"></button>
                         </div>
                         <div class="modal-body">
                         <!-- Form Start -->
                         <form id="addTaskForm">
+                            <input type="text" id="taskid" value="-1" readonly />
                             <!-- Tasktitle -->
                             <div class="form-group title">
                                 <label for="taskTitle">Task Title* </label><span id="errMsgTitle"> </span>
@@ -104,11 +105,11 @@
             <br><br>
             <!-- Button trigger modal -->
             <!-- Task Status Grid Start -->
-            <section class="container tasks mtb-10" id="tasks">
+            <section class="container tasks mtb-10" >
                 <h2>Tasks Lists</h2>
                 <hr>
                 <!--Row Start -->
-                <div class="row">
+                <div class="row" id="tasks">
                     <!-- todolist Start -->
                     <div class="col todo">                   
                         <h3 class>To-do</h3>
