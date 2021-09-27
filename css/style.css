@@ -107,7 +107,9 @@ h3{
     
 }
 #InProgress{
-    color:rgb(235, 139, 13);
+
+    color:rgb(235, 139, 13) !important;
+
 }
 #Review{
     color:rgb(235, 46, 13);

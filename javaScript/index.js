@@ -100,9 +100,11 @@ function validFormFieldInput() {
             id
         );
         //Resetting the form after saving the data
+
         //btnSave.removeEventListener('click',() => form.reset());
     }
     
+
     taskManager.render();
     form.reset();
     document.querySelector(".btn-close").click();

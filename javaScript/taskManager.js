@@ -62,6 +62,7 @@ const reviewColumnDefaultValues = reviewColumn.innerHTML;
 const doneColumnDefaultValues = doneColumn.innerHTML;
 
 //Create a  TaskManager class
+
 class TaskManager {
     constructor(currentId = 0) {
         this.tasks = [];
@@ -138,5 +139,6 @@ class TaskManager {
     }
 
 }
+
 
 
