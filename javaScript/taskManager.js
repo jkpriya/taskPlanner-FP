@@ -102,6 +102,7 @@ class TaskManager {
         matchedTask.assignTo = assignTo;
         matchedTask.dueDate = dueDate;
     }
+    
     //deleteTask() method deletes the selected task in a tasks array and render the updated tasks()array
     deleteTask(id) {
         this.tasks = this.tasks.filter(x => x.id != id);
