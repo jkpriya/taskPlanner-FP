@@ -112,9 +112,9 @@ function validFormFieldInput() {
 
 };
 
-// function clearFields(){
-//     form.reset();
-// }
+function clearFields(){
+    form.reset();
+}
 
 // Call the events
 

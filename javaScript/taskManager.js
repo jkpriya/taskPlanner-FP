@@ -27,7 +27,7 @@ function createTaskHtml(id, title, details, assignTo, dueDate, status) {
             </div>
             <!-- Button -->
             <button data-task-id=${id} onclick="editTaskForm(this)"
-            data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary edit-button">Edit</button>
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary edit-button" >Edit</button>
             <button data-task-id=${id} onclick="deleteTaskForm(this)" class="btn btn-primary del-button">Delete</button>
         </div>                              
     </div> <br>`;
@@ -47,9 +47,9 @@ function editTaskForm(e) {
 }
 //Function deleteTaskForm(e) is triggered when DELETE button in createTaskHtml() card is clicked
 //deleteTask() Find the task to be deleted from the tasks array and delete it 
-function deleteTaskForm(e) {
-    taskManager.deleteTask(Number(e.dataset.taskId));
-}
+// function deleteTaskForm(e) {
+//     taskManager.deleteTask(Number(e.dataset.taskId));
+// }
 
 //Selectors used to keep track on static cards entered in index.html
 const todoColumn = document.querySelector(".ToDo");
@@ -66,7 +66,7 @@ const doneColumnDefaultValues = doneColumn.innerHTML;
 class TaskManager {
     constructor(currentId = 0) {
         this.tasks = [];
-        this.currentId = currentId;
+        this.currentId  = currentId;
     }
     //addTask Method to assign the values and push it into the array
     // addTask() Method accepts the parameters from the Form and  check the task id = -1 ,if yes create a new task and pushes it to the tasks() array.
@@ -83,29 +83,28 @@ class TaskManager {
             };
 
             this.tasks.push(newTask);
-        } //else {
-        //     this.editTask(taskid, title, details, assignTo, dueDate, status);
-        // }
+        } else {
+            this.editTask(taskid, title, details, assignTo, dueDate, status);
+         }
     }
-    // getTask(id) helps to find the task to be deleted
-    // getTask(id) {
-    //     return this.tasks.find(task => task.id == id);
-    // }
+    //getTask(id) helps to find the task to be edited/deleted
+    getTask(id) {
+        return this.tasks.find(task => task.id == id);
+    }
 
     //editTask() method add the edited task card to the tasks array
     //editTask() is called when the SAVE button is clicked after editing the task card.
     //It accepts the edited form parameteres() and uses "taskid" to match the task in a tasks() array using filter Iterator
     //Then assigned the edited parameteres to the matched tasks.
-    // editTask(id, title, details, assignTo, dueDate, status) {
-    //     const matchedTasks = this.tasks.filter(x => x.id == id);
-    //     const matchedTask = matchedTasks[0];
-
-    //     matchedTask.title = title;
-    //     matchedTask.details = details;
-    //     matchedTask.status = status;
-    //     matchedTask.assignTo = assignTo;
-    //     matchedTask.dueDate = dueDate;
-    // }
+    editTask(id, title, details, assignTo, dueDate, status) {
+        const matchedTasks = this.tasks.filter(x => x.id == id);
+        const matchedTask = matchedTasks[0];
+        matchedTask.title = title;
+        matchedTask.details = details;
+        matchedTask.status = status;
+        matchedTask.assignTo = assignTo;
+        matchedTask.dueDate = dueDate;
+    }
 
     //deleteTask() method deletes the selected task in a tasks array and render the updated tasks()array
     // deleteTask(id) {
@@ -121,17 +120,12 @@ class TaskManager {
             const formattedDate =
                 date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
             const column = document.querySelector(`.${currentTask.status}`);
-            const taskHtml = createTaskHtml(currentTask.id, currentTask.title, currentTask.details, currentTask.assignTo,
-                formattedDate, currentTask.status);
-
+            const taskHtml = createTaskHtml(currentTask.id, currentTask.title, currentTask.details, currentTask.assignTo,formattedDate, currentTask.status);
             column.innerHTML += taskHtml;
         });
- 
-
     }
     // To recreate all the static cards
     clearColumns() {
-
         todoColumn.innerHTML = todoColumnDefaultValues;
         inProgressColumn.innerHTML = inProgressColumnDefaultValues;
         reviewColumn.innerHTML = reviewColumnDefaultValues;
