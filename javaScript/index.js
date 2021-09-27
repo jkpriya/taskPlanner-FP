@@ -19,52 +19,55 @@ let validationCount = 0;
 //Function used to validate the form
 function validFormFieldInput() {
     //Task Tile Validation (no of characters should be greater than 5)
-    if(taskTitle.value.length < 5) {
+    if (taskTitle.value.trim().length < 5) {
         errMsgTitle.innerHTML = "Task Title should be greater than 5 Characters";
         errMsgTitle.style.color = "#ff0000";
         taskTitle.style.borderColor = "red";
         taskTitle.focus();
         validationCount++;
     }
-    else{
+    else {
         errMsgTitle.innerHTML = "";
         taskTitle.style.borderColor = "black";
     }
     // Task description Validation (no of characters should be greater than 5)
-    if(taskDetails.value.length < 5) {
+    if (taskDetails.value.trim().length < 5) {
         errMsgDetails.innerHTML = "Task Description should be greater than 5 Characters";
         errMsgDetails.style.color = "#ff0000";
         taskDetails.style.borderColor = "red";
         taskDetails.focus();
         validationCount++;
     }
-    else{
-        errMsgDetails.innerHTML = ""; 
+    else {
+        errMsgDetails.innerHTML = "";
         taskDetails.style.borderColor = "black";
     }
     // Task assign Validation (no of characters should be greater than 1)
-    if(taskAssign.value.length < 2) {
+    if (taskAssign.value.trim().length < 2) {
         errMsgAssign.innerHTML = "Name should be atleast 2 characters";
         errMsgAssign.style.color = "#ff0000";
         taskAssign.style.borderColor = "red";
         taskAssign.focus();
         validationCount++;
     }
-    else{
+    else {
         errMsgAssign.innerHTML = "";
         taskAssign.style.borderColor = "black";
     }
     //Due Date Validation (should not be blank )
-    if(!taskDueDate.value) {
-        errMsgDueDate.innerHTML = "Please pick a Due Date";
+    
+    // let CurrentDate = new Date();
+    // let date = new Date(taskDueDate.value);
+    if (!taskDueDate.value || new Date(taskDueDate.value) < new Date()) {
+        errMsgDueDate.innerHTML = "Please pick a valid future date";
         errMsgDueDate.style.color = "#ff0000";
         taskDueDate.style.borderColor = "red";
         taskDueDate.focus();
         validationCount++;
     }
-    else{
+    else {
         errMsgDueDate.innerHTML = "";
-        taskDueDate.style.borderColor = "black";  
+        taskDueDate.style.borderColor = "black";
     }
     //Status Validation (should not be blank )
     if (taskStatus.value === "") {
@@ -99,14 +102,18 @@ function validFormFieldInput() {
         //Resetting the form after saving the data
         //btnSave.removeEventListener('click',() => form.reset());
     }
+    
     taskManager.render();
     form.reset();
+    document.querySelector(".btn-close").click();
+    
+
 };
 
-function clearFields(){
-    form.reset();
-}
+// function clearFields(){
+//     form.reset();
+// }
 
 // Call the events
-// form.addEventListener('submit',validFormFieldInput);
+
 btnSave.addEventListener('click', validFormFieldInput);

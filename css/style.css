@@ -70,6 +70,8 @@ button{
 }
 .reset{
     margin-left: 10px;;
+    background-color: rgb(62, 115, 124) !important;
+   color:white !important
 }
 button a,.card-body a{
    display: inline-block;
@@ -100,17 +102,17 @@ h3{
     height:20rem;
 } */
 
-#todo{
+#ToDo{
     color: rgb(133, 198, 236) !important ;
     
 }
-#inProgress{
+#InProgress{
     color:rgb(235, 139, 13);
 }
-#review{
+#Review{
     color:rgb(235, 46, 13);
 }
-#done{
+#Done{
     color:rgb(68, 241, 68);
 }
 /* Back to top link CSS */
@@ -129,3 +131,7 @@ footer {
     height: 40px;
     font-size: 20px;
 }
+#taskId {
+    display: none;
+}
+
