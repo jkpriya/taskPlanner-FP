@@ -1,6 +1,6 @@
-//create a method task html
-function createTaskHtml(title, details, assignTo, dueDate, status) {
-  const html = `<div id="draggable-handle" class="card mt-2  " >                     
+// create  a html card to add to task columns
+function createTaskHtml(id, title, details, assignTo, dueDate, status) {
+    const html = `<div id="draggable-handle" class="card mt-2  " >                     
         <!-- Card content -->
         <div class="card-body" >
             <!-- Title -->
@@ -23,89 +23,122 @@ function createTaskHtml(title, details, assignTo, dueDate, status) {
             <!-- Status -->
             <div class="card-text status">
                 <label for="cardLabelStatus">Status: </label>
-                <p id='${status}' class="cardStatusValue">${status}</p>
+                <p id="${status}"class="cardStatusValue">${status}</p>
             </div>
             <!-- Button -->
-            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary">Edit</a>
-            <a href="#" class="btn btn-primary ">Delete</a>
+            <button data-task-id=${id} onclick="editTaskForm(this)"
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary edit-button">Edit</button>
+            <button data-task-id=${id} onclick="deleteTaskForm(this)" class="btn btn-primary del-button">Delete</button>
         </div>                              
-    </div> `;
-  return html;
+    </div> <br>`;
+    return html;
+};
+//Function editTaskForm(e) is triggered when EDIT button in createTaskHtml() card is clicked
+//It passes the selected task (object ) card to the form .
+//getTask() helps to find the task to be edited ,then edit it and assign it to a form value
+function editTaskForm(e) {
+    const task = taskManager.getTask(Number(e.dataset.taskId));
+    taskid.value = task.id;
+    taskTitle.value = task.title;
+    taskDetails.value = task.details;
+    taskAssign.value = task.assignTo;
+    taskStatus.value = task.status;
+    taskDueDate.value = task.dueDate;
 }
-//Creating a class
+//Function deleteTaskForm(e) is triggered when DELETE button in createTaskHtml() card is clicked
+//deleteTask() Find the task to be deleted from the tasks array and delete it 
+function deleteTaskForm(e) {
+    taskManager.deleteTask(Number(e.dataset.taskId));
+}
+
+//Selectors used to keep track on static cards entered in index.html
+const todoColumn = document.querySelector(".ToDo");
+const inProgressColumn = document.querySelector(".InProgress");
+const reviewColumn = document.querySelector(".Review");
+const doneColumn = document.querySelector(".Done");
+const todoColumnDefaultValues = todoColumn.innerHTML;
+const inProgressColumnDefaultValues = inProgressColumn.innerHTML;
+const reviewColumnDefaultValues = reviewColumn.innerHTML;
+const doneColumnDefaultValues = doneColumn.innerHTML;
+
+//Create a  TaskManager class
+
 class TaskManager {
     constructor(currentId = 0) {
         this.tasks = [];
         this.currentId = currentId;
     }
     //addTask Method to assign the values and push it into the array
-    addTask(title, details, assignTo, dueDate, status) {
-        let newTask = {
-        id: this.currentId++,
-        title: title,
-        details: details,
-        assignTo: assignTo,
-        dueDate: dueDate,
-        status: status,
-        };
-        this.tasks.push(newTask);
-    }
-    //Render method
+    // addTask() Method accepts the parameters from the Form and  check the task id = -1 ,if yes create a new task and pushes it to the tasks() array.
+    //else it pass the parameters to the editTaskForm() method
+    addTask(title, details, assignTo, dueDate, status, taskid) {
+        if (taskid == -1) {
+            let newTask = {
+                id: this.currentId++,
+                title: title,
+                details: details,
+                assignTo: assignTo,
+                dueDate: dueDate,
+                status: status,
+            };
 
-    render() {
-        let tasksHtmlTodoList = [];
-        let tasksHtmlInProgressList = [];
-        let tasksHtmlReviewList = [];
-        let tasksHtmlDoneList = [];
-        for (let i = 0; i < this.tasks.length; i++) {
-            const tempTask = this.tasks[i];
-            const date = new Date(tempTask.dueDate);
-            const formattedDate =
-            date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-            console.log(tempTask.status);
-            if (tempTask.status === 'ToDo') {
-                const taskHtml = createTaskHtml(tempTask.title, tempTask.details, tempTask.assignTo, formattedDate, tempTask.status);
-                tasksHtmlTodoList.push(taskHtml);
-                // Set the inner html of the tasksList on the page
-                // const tasksHtml = tasksHtmlTodoList.join("\n");
-                // const tasksList = document.querySelector(".todo");
-                // tasksList.innerHTML += tasksHtml;
-            }
-            else if (tempTask.status ===  'InProgress') {
-                let taskHtml = createTaskHtml(tempTask.title, tempTask.details, tempTask.assignTo, formattedDate, tempTask.status);
-                tasksHtmlInProgressList.push(taskHtml);
-                console.log("InProgress Block" + tasksHtmlTodoList);
-                // const tasksHtml = tasksHtmlInProgressList.join("\n");
-                // const tasksList = document.querySelector(".inProgress");
-                // tasksList.innerHTML += tasksHtml;
-            }
-            else if (tempTask.status === 'Review') {
-                let taskHtml = createTaskHtml(tempTask.title, tempTask.details, tempTask.assignTo, formattedDate, tempTask.status);
-                tasksHtmlReviewList.push(taskHtml);
-                // const tasksHtml = tasksHtmlReviewList.join("\n");
-                // const tasksList = document.querySelector(".review");
-                // tasksList.innerHTML += tasksHtml;
-            }
-            else {
-                let taskHtml = createTaskHtml(tempTask.title, tempTask.details, tempTask.assignTo, formattedDate, tempTask.status);
-                tasksHtmlDoneList.push(taskHtml);
-                // const tasksHtml = tasksHtmlDoneList.join("\n");
-                // const tasksList = document.querySelector(".done");
-                // tasksList.innerHTML += tasksHtml;
-            }
-        }
-        const tasksHtml1 = tasksHtmlTodoList.join("\n");
-        const tasksList1 = document.querySelector(".todo");
-        tasksList1.innerHTML += tasksHtml1;
-        const tasksHtml2 = tasksHtmlInProgressList.join("\n");
-        const tasksList2 = document.querySelector(".inProgress");
-        tasksList2.innerHTML += tasksHtml2;
-        const tasksHtml3 = tasksHtmlReviewList.join("\n");
-        const tasksList3 = document.querySelector(".review");
-        tasksList3.innerHTML += tasksHtml3;
-        const tasksHtml4 = tasksHtmlDoneList.join("\n");
-        const tasksList4 = document.querySelector(".done");
-        tasksList4.innerHTML += tasksHtml4;
+            this.tasks.push(newTask);
+        } //else {
+        //     this.editTask(taskid, title, details, assignTo, dueDate, status);
+        // }
     }
+    // getTask(id) helps to find the task to be deleted
+    // getTask(id) {
+    //     return this.tasks.find(task => task.id == id);
+    // }
+
+    //editTask() method add the edited task card to the tasks array
+    //editTask() is called when the SAVE button is clicked after editing the task card.
+    //It accepts the edited form parameteres() and uses "taskid" to match the task in a tasks() array using filter Iterator
+    //Then assigned the edited parameteres to the matched tasks.
+    // editTask(id, title, details, assignTo, dueDate, status) {
+    //     const matchedTasks = this.tasks.filter(x => x.id == id);
+    //     const matchedTask = matchedTasks[0];
+
+    //     matchedTask.title = title;
+    //     matchedTask.details = details;
+    //     matchedTask.status = status;
+    //     matchedTask.assignTo = assignTo;
+    //     matchedTask.dueDate = dueDate;
+    // }
+
+    //deleteTask() method deletes the selected task in a tasks array and render the updated tasks()array
+    // deleteTask(id) {
+    //     this.tasks = this.tasks.filter(x => x.id != id);
+    //     this.render();
+    // }
+    //Render method used to dispaly the cards in a webpage.
+    render() {
+        this.clearColumns();
+        this.tasks.forEach(currentTask => {
+            //console.log(currentTask);
+            const date = new Date(currentTask.dueDate);
+            const formattedDate =
+                date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+            const column = document.querySelector(`.${currentTask.status}`);
+            const taskHtml = createTaskHtml(currentTask.id, currentTask.title, currentTask.details, currentTask.assignTo,
+                formattedDate, currentTask.status);
+
+            column.innerHTML += taskHtml;
+        });
+ 
+
+    }
+    // To recreate all the static cards
+    clearColumns() {
+
+        todoColumn.innerHTML = todoColumnDefaultValues;
+        inProgressColumn.innerHTML = inProgressColumnDefaultValues;
+        reviewColumn.innerHTML = reviewColumnDefaultValues;
+        doneColumn.innerHTML = doneColumnDefaultValues;
+    }
+
 }
+
+
 

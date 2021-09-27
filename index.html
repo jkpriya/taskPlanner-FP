@@ -49,12 +49,13 @@
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                        <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="staticBackdropLabel">Add Task</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
                         </div>
                         <div class="modal-body">
                         <!-- Form Start -->
                         <form id="addTaskForm">
+                            <input type="hidden" id="taskid" value="-1" readonly />
                             <!-- Tasktitle -->
                             <div class="form-group title">
                                 <label for="taskTitle">Task Title* </label><span id="errMsgTitle"> </span>
@@ -80,7 +81,7 @@
                                 <label for="taskStatus">Status*</label><span id="errMsgStatus"> </span>
                                 <select id="taskStatus" class="form-control" required>
                                     <option value="" selected>Choose...</option>
-                                    <option value="ToDo">ToDo</option>
+                                    <option value="ToDo">To Do</option>
                                     <option value="InProgress">In Progress</option>
                                     <option value="Review">Review</option>
                                     <option value="Done">Done</option>
@@ -104,13 +105,13 @@
             <br><br>
             <!-- Button trigger modal -->
             <!-- Task Status Grid Start -->
-            <section class="container tasks mtb-10" id="tasks">
+            <section class="container tasks mtb-10" >
                 <h2>Tasks Lists</h2>
                 <hr>
                 <!--Row Start -->
-                <div class="row">
+                <div class="row" id="tasks">
                     <!-- todolist Start -->
-                    <div class="col todo">                   
+                    <div class="col ToDo">                   
                         <h3 class>To-do</h3>
                         <!-- Card1 -->
                         <div id="draggable-handle" class="card mt-2  " >                     
@@ -174,7 +175,7 @@
                     </div>
                     <!-- Todo End -->
                     <!-- In progress Start -->
-                    <div class="col inProgress">    
+                    <div class="col InProgress">    
                         <h3>In Progress</h3>              
                         <!-- Card -->
                         <div id="draggable-handle" class="card mt-2" >                    
@@ -209,7 +210,7 @@
                     </div>
                     <!-- In Progress End -->
                     <!-- Review Start -->
-                    <div class="col review"> 
+                    <div class="col Review"> 
                         <h3>Review</h3>                 
                         <!-- Card -->
                         <div id="draggable-handle" class="card mt-2" >                  
@@ -244,7 +245,7 @@
                     </div>
                     <!-- Review End -->
                     <!-- Done Start -->
-                    <div class="col done"> 
+                    <div class="col Done"> 
                         <h3>Done</h3>                  
                         <!-- Card -->
                         <div id="draggable-handle" class="card mt-2" >
