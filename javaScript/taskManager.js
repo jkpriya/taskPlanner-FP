@@ -147,7 +147,6 @@ class TaskManager {
         }
     }
 
-
     //Render method used to dispaly the cards in a webpage.
     render() {
         this.clearColumns();

@@ -1,6 +1,8 @@
 //Initialize a new instance of `TaskManager
 const taskManager = new TaskManager();
+//Loading in the local storage
 taskManager.load();
+// Showing the data on the screen
 taskManager.render();
 // Selectors
 const form = document.querySelector('#addTaskForm'); // form
@@ -16,6 +18,7 @@ const errMsgDetails = document.querySelector('#errMsgDetails'); // Error Form De
 const errMsgAssign = document.querySelector('#errMsgAssign'); // Error Form Assign
 const errMsgDueDate = document.querySelector('#errMsgDueDate'); // Error Form DueDate
 const errMsgStatus = document.querySelector('#errMsgStatus'); // Error Form Status
+const closeButton = document.querySelector(".btn-close")// Form Close Button
 let validationCount = 0;
 //Function used to validate the form
 function validFormFieldInput() {
@@ -44,7 +47,7 @@ function validFormFieldInput() {
         taskDetails.style.borderColor = "black";
     }
     // Task assign Validation (no of characters should be greater than 1)
-    if (taskAssign.value.trim().length < 2) {
+    if (taskAssign.value.trim().length < 2 ) {
         errMsgAssign.innerHTML = "Name should be atleast 2 characters";
         errMsgAssign.style.color = "#ff0000";
         taskAssign.style.borderColor = "red";
@@ -55,10 +58,7 @@ function validFormFieldInput() {
         errMsgAssign.innerHTML = "";
         taskAssign.style.borderColor = "black";
     }
-    //Due Date Validation (should not be blank )
-    
-    // let CurrentDate = new Date();
-    // let date = new Date(taskDueDate.value);
+    //Due Date Validation (should not be blank and should be future date )
     if (!taskDueDate.value || new Date(taskDueDate.value) < new Date()) {
         errMsgDueDate.innerHTML = "Please pick a valid future date";
         errMsgDueDate.style.color = "#ff0000";
@@ -108,15 +108,16 @@ function validFormFieldInput() {
     taskManager.save();
     taskManager.render();
     form.reset();
-    document.querySelector(".btn-close").click();
-    
+    closeButton.click(); 
 
 };
-
-function clearFields(){
+//Function for close button
+function formCloseButton() {
     form.reset();
+    location.reload();
 }
-
 // Call the events
-
+//Event Listener for Save Button
 btnSave.addEventListener('click', validFormFieldInput);
+//Event Listener for close Button in Modal
+closeButton.addEventListener('click',formCloseButton);
