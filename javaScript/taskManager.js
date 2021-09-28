@@ -47,9 +47,9 @@ function editTaskForm(e) {
 }
 //Function deleteTaskForm(e) is triggered when DELETE button in createTaskHtml() card is clicked
 //deleteTask() Find the task to be deleted from the tasks array and delete it 
-// function deleteTaskForm(e) {
-//     taskManager.deleteTask(Number(e.dataset.taskId));
-// }
+function deleteTaskForm(e) {
+    taskManager.deleteTask(Number(e.dataset.taskId));
+}
 
 //Selectors used to keep track on static cards entered in index.html
 const todoColumn = document.querySelector(".ToDo");
@@ -66,7 +66,7 @@ const doneColumnDefaultValues = doneColumn.innerHTML;
 class TaskManager {
     constructor(currentId = 0) {
         this.tasks = [];
-        this.currentId  = currentId;
+        this.currentId = currentId;
     }
     //addTask Method to assign the values and push it into the array
     // addTask() Method accepts the parameters from the Form and  check the task id = -1 ,if yes create a new task and pushes it to the tasks() array.
@@ -85,7 +85,7 @@ class TaskManager {
             this.tasks.push(newTask);
         } else {
             this.editTask(taskid, title, details, assignTo, dueDate, status);
-         }
+        }
     }
     //getTask(id) helps to find the task to be edited/deleted
     getTask(id) {
@@ -107,10 +107,47 @@ class TaskManager {
     }
 
     //deleteTask() method deletes the selected task in a tasks array and render the updated tasks()array
-    // deleteTask(id) {
-    //     this.tasks = this.tasks.filter(x => x.id != id);
-    //     this.render();
-    // }
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(x => x.id != id);
+        this.save();
+        this.load();
+        this.render();
+    }
+    //Create save() method 
+    save() {
+        // Create a JSON string of the tasks
+        const tasksJson = JSON.stringify(this.tasks);
+
+        // Store the JSON string in localStorage
+        localStorage.setItem("tasks", tasksJson);
+
+        // Convert the currentId to a string;
+        const currentId = String(this.currentId);
+
+        // Store the currentId in localStorage
+        localStorage.setItem("currentId", currentId);
+    }
+    load() {
+        // Check if any tasks are saved in localStorage
+        if (localStorage.getItem("tasks")) {
+            // Get the JSON string of tasks in localStorage
+            const tasksJson = localStorage.getItem("tasks");
+
+            // Convert it to an array and store it in our TaskManager
+            this.tasks = JSON.parse(tasksJson);
+        }
+
+        // Check if the currentId is saved in localStorage
+        if (localStorage.getItem("currentId")) {
+            // Get the currentId string in localStorage
+            const currentId = localStorage.getItem("currentId");
+
+            // Convert the currentId to a number and store it in our TaskManager
+            this.currentId = Number(currentId);
+        }
+    }
+
+
     //Render method used to dispaly the cards in a webpage.
     render() {
         this.clearColumns();
@@ -120,7 +157,7 @@ class TaskManager {
             const formattedDate =
                 date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
             const column = document.querySelector(`.${currentTask.status}`);
-            const taskHtml = createTaskHtml(currentTask.id, currentTask.title, currentTask.details, currentTask.assignTo,formattedDate, currentTask.status);
+            const taskHtml = createTaskHtml(currentTask.id, currentTask.title, currentTask.details, currentTask.assignTo, formattedDate, currentTask.status);
             column.innerHTML += taskHtml;
         });
     }

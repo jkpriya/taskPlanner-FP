@@ -1,6 +1,7 @@
 //Initialize a new instance of `TaskManager
 const taskManager = new TaskManager();
-
+taskManager.load();
+taskManager.render();
 // Selectors
 const form = document.querySelector('#addTaskForm'); // form
 const taskid = document.querySelector('#taskid'); // task id
@@ -104,7 +105,7 @@ function validFormFieldInput() {
         //btnSave.removeEventListener('click',() => form.reset());
     }
     
-
+    taskManager.save();
     taskManager.render();
     form.reset();
     document.querySelector(".btn-close").click();
