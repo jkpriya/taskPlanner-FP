@@ -12,7 +12,8 @@ const taskDetails = document.querySelector('#taskDetails');// Input Form Descrip
 const taskAssign = document.querySelector('#taskAssign'); // Input Form Assign
 const taskDueDate = document.querySelector('#taskDueDate'); // Input Form DueDate
 const taskStatus = document.querySelector('#taskStatus'); // Input Form Status
-const btnSave = document.querySelector('#btnSave'); // Input Form Save Button
+const btnSave = document.querySelector('#btnSave'); // Form Save Button
+const btnReset = document.querySelector('#btnReset'); // Form Reset Button
 const errMsgTitle = document.querySelector('#errMsgTitle'); // Error Form Title
 const errMsgDetails = document.querySelector('#errMsgDetails'); // Error Form Description
 const errMsgAssign = document.querySelector('#errMsgAssign'); // Error Form Assign
@@ -117,8 +118,24 @@ function formCloseButton() {
     form.reset();
     location.reload();
 }
+//Function for close button
+function resetForm() {
+    errMsgTitle.innerHTML = "";
+    taskTitle.style.borderColor = "black";
+    errMsgDetails.innerHTML = "";
+    taskDetails.style.borderColor = "black";
+    errMsgAssign.innerHTML = "";
+    taskAssign.style.borderColor = "black";
+    errMsgDueDate.innerHTML = "";
+    taskDueDate.style.borderColor = "black";
+    errMsgStatus.innerHTML = "";
+    taskStatus.style.borderColor = "black";
+ 
+}
 // Call the events
 //Event Listener for Save Button
 btnSave.addEventListener('click', validFormFieldInput);
 //Event Listener for close Button in Modal
 closeButton.addEventListener('click',formCloseButton);
+//Event Listener for Reset Button In Modal
+btnReset.addEventListener('click',resetForm);
