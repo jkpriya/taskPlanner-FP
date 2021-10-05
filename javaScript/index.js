@@ -20,6 +20,7 @@ const errMsgDueDate = document.querySelector('#errMsgDueDate'); // Error Form Du
 const errMsgStatus = document.querySelector('#errMsgStatus'); // Error Form Status
 const closeButton = document.querySelector(".btn-close")// Form Close Button
 let validationCount = 0;
+//console.log(new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString());
 //Function used to validate the form
 function validFormFieldInput() {
     //Task Tile Validation (no of characters should be greater than 5)
@@ -59,7 +60,7 @@ function validFormFieldInput() {
         taskAssign.style.borderColor = "black";
     }
     //Due Date Validation (should not be blank and should be future date )
-    if (!taskDueDate.value || new Date(taskDueDate.value) < new Date()) {
+    if (!taskDueDate.value && new Date(taskDueDate.value) <= new Date()) {
         errMsgDueDate.innerHTML = "Please pick a valid future date";
         errMsgDueDate.style.color = "#ff0000";
         taskDueDate.style.borderColor = "red";

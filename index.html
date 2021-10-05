@@ -74,7 +74,7 @@
                             <!-- Due Date calender-->
                             <div class="form-group duedate">  
                                 <label for="taskDueDate">Due Date* </label><span id="errMsgDueDate"> </span>
-                                <input class="form-control" id="taskDueDate" name="date" placeholder="DD/MM/YYY" type="date" required/>
+                                <input class="form-control" id="taskDueDate" name="date" placeholder="DD/MM/YYY" type="date" onfocus= "this.min=new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split('T')[0]" required/>
                             </div>
                             <!-- Status dropdown-->
                             <div class="form-group">

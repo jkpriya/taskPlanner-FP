@@ -27,7 +27,7 @@ function createTaskHtml(id, title, details, assignTo, dueDate, status) {
             </div>
             <!-- Button -->
             <button data-task-id=${id} onclick="editTaskForm(this)"
-            data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary edit-button" >Edit</button>
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary edit-button ${status === 'Done' ?'invisible' : 'visible'}" >Edit</button>
             <button data-task-id=${id} onclick="deleteTaskForm(this)" class="btn btn-primary del-button">Delete</button>
         </div>                              
     </div> <br>`;
