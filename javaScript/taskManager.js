@@ -38,7 +38,9 @@ function createTaskHtml(id, title, details, assignTo, dueDate, status) {
 //getTask() helps to find the task to be edited ,then edit it and assign it to a form value
 function editTaskForm(e) {
     const task = taskManager.getTask(Number(e.dataset.taskId));
+    btnReset.style.display = 'none';
     taskid.value = task.id;
+    taskTitle.readOnly = true;
     taskTitle.value = task.title;
     taskDetails.value = task.details;
     taskAssign.value = task.assignTo;
