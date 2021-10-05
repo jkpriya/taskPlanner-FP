@@ -48,7 +48,7 @@ function validFormFieldInput() {
         taskDetails.style.borderColor = "black";
     }
     // Task assign Validation (no of characters should be greater than 1)
-    if (taskAssign.value.trim().length < 2 ) {
+    if (!(taskAssign.value.trim().match(/^([a-zA-Z,]{2,})$/))) {
         errMsgAssign.innerHTML = "Name should be atleast 2 characters";
         errMsgAssign.style.color = "#ff0000";
         taskAssign.style.borderColor = "red";
