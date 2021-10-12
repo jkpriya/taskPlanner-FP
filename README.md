@@ -43,7 +43,3 @@ Developed By-Amrutha,Priya and Sisile
 
  
 
-- 
-- The functionalities it provides for the user (adding task, storing it in local storage, etc)
-- The technologies used in the project (html, bootstrap, etc)
-- A screenshot of the webpage and/or link to the GitHub pages
